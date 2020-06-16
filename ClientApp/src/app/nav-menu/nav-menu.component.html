@@ -1,0 +1,56 @@
+<header>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <h1><a style="color: white;" [routerLink]="'/'"> Yummy Tummy</a></h1>
+      <!-- <button mat-icon-button>
+        <mat-icon (click)="toggle()">menu</mat-icon>
+      </button> -->
+      <span class="menu-spacer"></span>
+      <div [ngClass]="{ show: isExpanded }">
+        <a mat-button [routerLink]="'/menu'"> Menu </a>
+        <a mat-button [routerLink]="'/counter'"> Counter </a>
+        <a mat-button [routerLink]="'/fetch-data'"> Fetch Data </a>  
+      </div>
+      <span class="example-fill-remaining-space"></span>
+      <!-- <button *ngIf="!isLoggedIn" type="button" mat-raised-button color="accent"  (click)="login()">
+      Signin With Google
+      </button>
+      <button *ngIf="isLoggedIn" type="button" mat-raised-button color="accent"  (click)="logout()">
+        Signout
+      </button> -->
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <!-- <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">Yummy Tummy</a>
+      <button  class="navbar-toggler" type="button" data-toggle="collapse"  data-target=".navbar-collapse" aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded" (click)="toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <ul class="navbar-nav flex-grow">
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/counter']"
+              >Counter</a
+            >
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
+              >Fetch data</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav> -->
+</header>

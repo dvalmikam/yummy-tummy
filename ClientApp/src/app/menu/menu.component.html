@@ -1,0 +1,98 @@
+<div>&nbsp;</div>
+
+    <div class="row no-gutter">
+        <div class="col-md-9" style="text-align: left;">
+            <mat-tab-group style="background-color: #424242;">
+                <mat-tab label="Regular"> 
+                    <div  class="row">
+                        <div class="col-md-4" *ngFor="let item of regularMenuItems">
+                         <mat-card>
+                            <mat-card-header>
+                              <mat-card-title>           
+                                {{item.itemName}} - {{item.price|currency}}                
+                              </mat-card-title>
+                             
+                            </mat-card-header>
+                            <img mat-card-image src="./../../assets/food.jpg" alt={{item.itemName}} width="200px;">
+                            <mat-card-content>
+                              <p>
+                               {{item.itemDescription}}
+                              </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                              <button mat-raised-button color="accent" (click)="addToCart(item)">Add To Cart</button>
+                            </mat-card-actions>
+                          </mat-card>
+                          <br/>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Catering"> 
+                    <div class="row">
+                        <div class="col-md-4" *ngFor="let item of cateringMenuItems">
+                         <mat-card>
+                            <mat-card-header>
+                              <mat-card-title>           
+                                {{item.itemName}} - {{item.price|currency}}                
+                              </mat-card-title>
+                             
+                            </mat-card-header>
+                            <img mat-card-image src="./../../assets/food.jpg" alt={{item.itemName}}>
+                            <mat-card-content>
+                              <p>
+                               {{item.itemDescription}}
+                              </p>
+                            </mat-card-content> 
+                            <mat-card-actions>
+                              <button mat-raised-button color="accent" (click)="addToCart(item)">Add To Cart</button>
+                            </mat-card-actions>
+                          </mat-card>
+                          <br/>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        <div class="col-md-2" *ngIf="orderList.orderItems.length>0">
+            <div class="row" style="border-bottom:1px dotted gray;">
+                <div class="col-md-2">
+                    <h4>#</h4>
+                </div>
+                <div class="col-md-8">
+                    <h4>Name</h4>
+                </div>
+                <div class="col-md-2">
+                    <h4>Price</h4>
+                </div>
+            </div> 
+            <div class="row"  *ngFor="let order of orderList.orderItems">
+                <div class="col-md-2">
+                    {{order.numberOfOrders}}
+                </div>
+                <div class="col-md-8">
+                    {{order.itemName}}
+                </div>
+                <div class="col-md-2">
+                    {{order.price | currency}}
+                    <br/>
+                    <a style="cursor:pointer;color: cornflowerblue;font-size: xx-small;" (click)="removeItem(order)">Remove</a>
+                </div>
+            </div>
+            <div class="row" style="border-top:1px dotted gray;">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <h5>Total</h5>
+                </div>
+                <div class="col-md-2">
+                <h5>  {{orderList.orderTotal | currency}}</h5>
+
+                </div>
+            </div> 
+            <div class="row" style="text-align: center;">
+                <div class="col-md-12">
+                    <button mat-raised-button color="accent" (click)="checkout()">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
